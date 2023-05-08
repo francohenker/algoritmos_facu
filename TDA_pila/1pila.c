@@ -20,10 +20,11 @@ void impInver(tipoPila Pila){
             i++;
         }
         for(int m = 0; m < i; m++){        // de esta forma se carga la pila invertida a la original, empezando desde el final del array
-            apilar(&pilaaux, arrayaux[i]);
+            apilar(&pilaaux, arrayaux[m]);
         }
+        printf("Pila Invertida:\n");
         while (!esVacia(pilaaux)) {     // imprime la nueva pila
-            printf(" 1 [%d]\n", pilaaux->info);
+            printf("[%d]\n", pilaaux->info);
             pilaaux = pilaaux->sig;
         }
     }
@@ -31,15 +32,21 @@ void impInver(tipoPila Pila){
 
 int main(){
     tipoPila pila;
+    int n;
     crear(&pila);
     pila = NULL;
-    apilar(&pila, 10);  
-    apilar(&pila, 12);
-    apilar(&pila, 40);
+    printf("Cuantos elementos queres apilar?: ");
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++){
+        int num;
+        printf("Ingrese un numero: ");
+        scanf("%d", &num);
+        apilar(&pila, num);  
+    }
     impInver(pila);
-
-    for(int i=0; i<3; i++){
-        printf("%d\n", pila->info);
+    printf("Pila Normal:\n");
+    for(int i = 0; i < n; i++){
+        printf("[%d]\n", pila->info);
         pila = pila->sig;
     }
 
