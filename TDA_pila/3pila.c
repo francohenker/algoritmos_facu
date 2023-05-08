@@ -45,5 +45,15 @@ int main(){
     pilaPares = NULL;
     carga(&pila1);
     Par(pila1, &pilaPares);
+    printf("Pila normal:\n");
+    while(pila1 != NULL){
+        printf("%d\n", pila1->info);
+        pila1 = pila1->sig;
+    }
+    printf("Pila pares:\n");
+        while(pilaPares != NULL){
+        printf("%d\n", pilaPares->info);
+        pilaPares = pilaPares->sig;
+    }
     return 0;
 }

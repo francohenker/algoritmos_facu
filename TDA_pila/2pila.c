@@ -28,11 +28,23 @@ int main(){
     crear(&pila2);
     pila2 = NULL;
     pila1 = NULL;
-    apilar(&pila1, 10);  
-    apilar(&pila1, 12);
-    apilar(&pila1, 40);
+    int n;
+    printf("Cuantos elementos queres apilar?: ");
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++){
+        int num;
+        printf("Ingrese un numero: ");
+        scanf("%d", &num);
+        apilar(&pila1, num);  
+    }
     copiarPila(pila1, &pila2);
-    for(int i=0; i<3; i++){
+    printf("Primer pila:\n");
+    for(int i = 0; i < n; i++){
+        printf("%d\n", pila1->info);
+        pila1 = pila1->sig;
+    }
+    printf("Segunda pila:\n");
+        for(int i = 0; i < n; i++){
         printf("%d\n", pila2->info);
         pila2 = pila2->sig;
     }
